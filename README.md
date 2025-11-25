@@ -123,7 +123,7 @@ The core temporal anchoring algorithm (`willow.py`) is proprietary and not inclu
 
 **For enterprise licensing, partnerships, or beta access:**
 - Email: haley.kurtz.ai@gmail.com
-- Live Demo: https://willow-production-4665.up.railway.app/docs
+- Live Demo: https://willow-drift-reduction-production.up.railway.app/docs
 
 ## Use Cases
 
