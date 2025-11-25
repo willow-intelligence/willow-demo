@@ -36,7 +36,8 @@ Willow provides temporal grounding infrastructure that reduces conversational dr
 
 ## Live Demo
 
-**API Endpoint:** willow-drift-reduction-production.up.railway.app
+**API Endpoint:** [willow-drift-reduction-production.up.railway.app](https://willow-drift-reduction-production.up.railway.app/docs)
+
 
 ### Example: The Problem Willow Solves
 
@@ -123,7 +124,8 @@ The core temporal anchoring algorithm (`willow.py`) is proprietary and not inclu
 
 **For enterprise licensing, partnerships, or beta access:**
 - Email: haley.kurtz.ai@gmail.com
-- Live Demo: willow-drift-reduction-production.up.railway.app
+- Live Demo: **API Endpoint:** [willow-drift-reduction-production.up.railway.app](https://willow-drift-reduction-production.up.railway.app/docs)
+
 
 ## Use Cases
 
