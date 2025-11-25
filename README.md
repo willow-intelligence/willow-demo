@@ -61,7 +61,7 @@ Response: "Today is November 24, 2025." ✅
 ```json
 {
   "model": "openai:gpt-4o-mini",
-  "mode": "baseline|willow",
+  "mode": "willow",
   "messages": [
     {
       "role": "user",
