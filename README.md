@@ -1,44 +1,40 @@
-# 🌳 WILLOW INTELLIGENCE  
-## Cognitive Stability Infrastructure
+🌿 WILLOW INTELLIGENCE
+Cognitive Stability Infrastructure for LLMs
 
-Reducing drift & building continuity by grounding language models in real time.
+Reducing drift and building continuity by grounding language models in real time.
 
 Willow provides temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinated dates & times, and reduces conversational drift by 60–80% in early testing.
 
----
-
-## ✨ Live Demo: Interactive Web Beta UI
+Live Demo: Interactive Web Beta UI
 
 Toggle Baseline vs Willow mode and view metrics (tokens, latency, model):
 
 👉 https://willow-drift-reduction-production.up.railway.app/ui
 
----
+Public API Endpoint (for developers)
 
-## 🧩 Public API Endpoint (for developers):
-
-*Note:* `/chat` is a POST-only endpoint and will **not** load in a browser.  
-Use the `/ui` link above for interactive testing.
+Note: /chat is a POST-only endpoint and will not load in a browser.
+Use the /ui link above for interactive testing.
 
 👉 https://willow-drift-reduction-production.up.railway.app/chat
 
----
+What Willow Does:
 
-## What Willow Does:
+Provides accurate real-time date & time
 
-✔️ Provides accurate real-time date & time  
-✔️ Prevents hallucinated system-time disclaimers  
-✔️ Reduces conversational drift by 60–80%  
-✔️ Improves multi-turn consistency  
-✔️ Works with any provider (OpenAI, Anthropic, Google, etc.)  
-✔️ Logs tokens-in, tokens-out, and latency for every request  
-✔️ Enables continuity & stable reasoning over long conversations  
+Prevents hallucinated system-time errors
 
----
+Reduces conversational drift by 60–80%
 
-## Architecture:
+Improves multi-turn consistency
 
+Works with any provider (OpenAI, Anthropic, Google, etc.)
 
+Logs tokens-in, tokens-out, and latency for every request
+
+Enables continuity & stable reasoning over long conversations
+
+Architecture
 User
   ↓
 Willow Wrapper (API + UI)  ← Public interface (FastAPI)
@@ -49,145 +45,84 @@ Temporal Anchors + Scaffold
   ↓
 LLM Provider (OpenAI / Anthropic)
 
+How to Test Willow (Quick Guide)
+1. Select a Mode
 
+Baseline → normal model behavior
+Willow → temporal anchoring enabled
 
+2. Test A: Time Awareness
 
----
+Baseline mode:
+Ask: “What time is it right now?”
+❌ Model will say it cannot access real-time information.
 
-## How to Test Willow (Quick Guide)
+Willow mode:
+✔ Returns the correct real-time date + time.
 
-### 1️⃣ Select a Mode  
-Baseline → normal LLM behavior  
-Willow → temporal anchoring  
-
----
-
-### 2️⃣ Test A: Time Awareness
-
-Baseline mode:  
-Ask: **"What time is it right now?"**  
-❌ Will say it cannot access real-time information.
-
-Willow mode:  
-✔️ Returns the correct real-time date + time.
-
----
-
-### 3️⃣ Test B: Drift / Continuity
+3. Test B: Drift & Continuity
 
 Ask in Willow mode:
 
-- "What were we working on originally?"  
-- "What was my previous task?"  
-- "Summarize our conversation so far."
+“What were we working on originally?”
 
-Expected: Willow maintains continuity.  
-Baseline: Often forgets context or drifts.
+“What was my previous task?”
 
----
+“Summarize our conversation so far.”
 
-### 4️⃣ Test C: Temporal Reasoning
+Willow maintains continuity.
+Baseline forgets or drifts.
+
+4. Test C: Temporal Reasoning
 
 Try:
 
-- "What day is it one week from now?"  
-- "How many days until Friday?"  
-- "What day was it three months ago?"
+“What day is it one week from now?”
 
-Willow returns accurate results across all temporal shifts.
+“How many days until Friday?”
 
----
+“What day was it three months ago?”
 
-## 📊 Viewing Technical Metrics (For Reviewers)
+Willow returns accurate results across temporal shifts.
 
-Every API response includes:
+Developer API Example (Optional)
 
-- tokens_in  
-- tokens_out  
-- elapsed_sec (latency)  
-- mode (baseline or willow)  
-- model  
-
-These appear in:
-
-- UI chat bubbles  
-- JSON API responses  
-- server logs (`sessions.csv`)  
-
-No configuration required.
-
----
-
-## 👩‍💻 Developer API Usage (Optional)
-
-### POST `/chat`
-
-**Request:**
+POST /chat
 
 {
-"model": "openai:gpt-4o-mini",
-"mode": "willow",
-"messages": [
-{ "role": "user", "content": "What was the date one week ago?" }
-]
+  "model": "openai:gpt-4o-mini",
+  "mode": "willow",
+  "messages": [
+    { "role": "user", "content": "What was the date one week ago?" }
+  ]
 }
 
 
-**Response:**
+Response Example:
 
 {
-"mode": "willow",
-"model": "openai:gpt-4o-mini",
-"output": "...",
-"metrics": {
-"elapsed_sec": 1.051,
-"tokens_in": 164,
-"tokens_out": 24
+  "mode": "willow",
+  "model": "openai:gpt-4o-mini",
+  "output": "...",
+  "metrics": {
+    "elapsed_sec": 1.051,
+    "tokens_in": 164,
+    "tokens_out": 24
+  }
 }
-}
 
----
-
-## Installation (Demo Version)
-
+Installation (Demo Version):
 git clone https://github.com/willow-intelligence/willow-demo
-
 cd willow-demo
 pip install -r requirements.txt
 
 
+Note: This repo contains a demo wrapper.
+The Willow Core Algorithm (willow.py) is proprietary and not included.
 
+For licensing, partnerships, or research access:
 
-*Note:* This repo contains a demo wrapper.  
-The Willow Core Algorithm (`willow.py`) is proprietary and not included.
-
----
-
-## 📬 Contact
-
-For enterprise licensing, partnerships, or research access:  
 📧 haley.kurtz.ai@gmail.com
 
----
-
-Built with 💛 by Haley Kurtz  
+Built with 💛 by Haley Kurtz
 Anchoring AI to reality, one turn at a time ⌛
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
