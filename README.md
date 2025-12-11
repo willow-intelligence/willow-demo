@@ -1,162 +1,158 @@
-# 🌳 Willow - Temporal Anchoring for LLMs
+🌳 Willow Intelligence: Temporal Anchoring for LLMs
+Cognitive Stability Infrastructure → Reducing drift & building continuity by grounding language models in real time.
 
-Willow provides temporal grounding infrastructure that reduces conversational drift in large language models by 60-80%.
+Willow provides temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinated dates, and reduces conversational drift by 60–80% in early testing.
 
-## What It Does
+🚀 Live Demo
+Interactive Web Beta UI
 
-- ✅ Injects real-time temporal context into LLM conversations
-- ✅ Eliminates hallucinated dates and times
-- ✅ Grounds inference in actual reality
-- ✅ Creates closed feedback loops for context stability
+Toggle Baseline vs Willow mode and view metrics (tokens, latency, model).
 
-## Architecture
-```
+👉 https://willow-drift-reduction-production.up.railway.app/ui
+
+Public API Endpoint (for developers)
+*Note: /chat is a POST-only API endpoint and will not display anything if opened in a browser. Use /ui for interactive testing.
+
+👉 https://willow-drift-reduction-production.up.railway.app/chat
+
+🌿 What Willow Does
+
+✔️ Provides accurate real-time date & time
+✔️ Prevents hallucinated outputs
+✔️ Reduces conversational drift by 60–80%
+✔️ Improves multi-turn consistency
+✔️ Works with any provider (OpenAI, Anthropic, Google, etc.)
+✔️ Logs tokens-in, tokens-out, and latency for every request
+✔️ Enables continuity & context stability across turns
+
+🏗️ Architecture
 ┌─────────────┐
-│   User      │
-└──────┬──────┘
+│    User      │
+└──────┬───────┘
        │
        ▼
-┌─────────────────────┐
-│  Willow Wrapper     │  ← Public API Interface
-│  (main.py)          │
-└──────┬──────────────┘
+┌────────────────────────┐
+│ Willow Wrapper (API+UI)│  ← Public interface
+│ main.py                │
+└──────┬─────────────────┘
        │
        ▼
-┌─────────────────────┐
-│  Willow Core        │  ← PROPRIETARY (not included)
-│  (willow.py)        │
-└──────┬──────────────┘
+┌────────────────────────┐
+│ Willow Core Logic      │  ← PROPRIETARY
+│ Time Anchors + Scaffold│
+└──────┬─────────────────┘
        │
        ▼
-┌─────────────────────┐
-│  LLM Provider       │
-│  (OpenAI, etc)      │
-└─────────────────────┘
-```
+┌────────────────────────┐
+│ LLM Provider           │
+│ (OpenAI / Anthropic)   │
+└────────────────────────┘
 
-## Live Demo
+📦 Installation (Demo Version)
+git clone https://github.com/willow-intelligence/willow-demo
+cd willow-demo
+pip install -r requirements.txt
 
-**API Endpoint:** [willow-drift-reduction-production.up.railway.app](https://willow-drift-reduction-production.up.railway.app/docs)
 
+🔒 Note: The demo includes placeholder logic.
+Production Willow Core (willow.py) is proprietary and closed-source.
 
-### Example: The Problem Willow Solves
+🧪 How to Test Willow (Simple Beta Instructions)
+1️⃣ Open the UI
 
-**Without Willow (Baseline Mode):**
-```json
-Query: "What day is today?"
-Response: "I don't have access to real-time information..." ❌
-```
+👉 https://willow-drift-reduction-production.up.railway.app/ui
 
-**With Willow:**
-```json
-Query: "What day is today?"
-Response: "Today is November 24, 2025." ✅
-```
+2️⃣ Choose a Mode
 
-## API Reference
+Baseline → no temporal anchoring
 
-### POST /chat
+Willow → real-time anchoring + drift reduction active
 
-**Request:**
-```json
+3️⃣ Run side-by-side comparisons
+Test A — Time Awareness
+
+Baseline:
+Ask: “What time is it right now?”
+Expected: ❌ “I don’t have access to the current time.”
+
+Willow:
+Expected: ✅ Exact real-time date + time
+
+Test B — Drift / Context Stability
+
+In Willow mode, ask:
+
+“What were we working on originally?”
+
+“What did I ask two messages ago?”
+
+“Summarize our conversation so far.”
+
+Willow stays coherent.
+Baseline forgets or drifts.
+
+Test C — Temporal Reasoning
+
+Try:
+
+“What day is it one week from now?”
+
+“How many days until Friday?”
+
+“What day was it three months ago?”
+
+Baseline → ❌ often incorrect
+Willow → ✅ consistent & grounded
+
+📊 Viewing Metrics (Tokens, Latency, Mode)
+
+Every response shows:
+
+tokens_in
+
+tokens_out
+
+elapsed_sec (latency)
+
+mode (baseline or willow)
+
+model
+
+These appear automatically in:
+
+the UI (below each assistant response)
+
+the API JSON
+
+server logs (logs/sessions.csv)
+
+No configuration required.
+
+🧪 Developer API (Optional)
+POST /chat
 {
   "model": "openai:gpt-4o-mini",
   "mode": "willow",
   "messages": [
-    {
-      "role": "user",
-      "content": "What was the date one week ago?"
-    }
+    { "role": "user", "content": "What was the date one week ago?" }
   ]
 }
-```
 
-**Response:**
-```json
+Response:
 {
   "mode": "willow",
   "model": "openai:gpt-4o-mini",
-  "output": "One week ago from today, November 24, 2025, was November 17, 2025.",
+  "output": "...",
   "metrics": {
     "elapsed_sec": 1.051,
     "tokens_in": 164,
     "tokens_out": 24
   }
 }
-```
 
-## Key Features
+For enterprise licensing, partnerships, or research access:
 
-### Temporal Anchoring
-Provides accurate real-time date/time context to prevent hallucination.
+📧 haley.kurtz.ai@gmail.com
 
-### Grounded Inference
-Uses temporal anchors to keep reasoning stable and reality-based across conversation turns.
-
-### Closed Feedback Loop
-Timestamps each interaction to create persistent, grounded memory that prevents drift.
-
-## Results
-
-Early beta testing shows:
-- 📉 60-80% reduction in conversational drift
-- ✅ 100% accuracy on temporal queries
-- ⚡ No performance penalty (same latency as baseline)
-- 🎯 Stable context across multi-turn conversations
-
-## Beta Testing
-
-Currently in private beta. [Sign up for beta access →](https://forms.gle/your-form-link)
-
-## Installation (Demo Version)
-```bash
-git clone https://github.com/willow-intelligence/willow-demo
-cd willow-demo
-pip install -r requirements.txt
-
-# Note: This demo uses a placeholder willow.py
-# For production use, contact us about licensing
-```
-
-## Proprietary Technology
-
-The core temporal anchoring algorithm (`willow.py`) is proprietary and not included in this public repository. This demo shows the API interface and integration patterns only.
-
-**For enterprise licensing, partnerships, or beta access:**
-- Email: haley.kurtz.ai@gmail.com
-- Live Demo: **API Endpoint:** [willow-drift-reduction-production.up.railway.app](https://willow-drift-reduction-production.up.railway.app/docs)
-
-
-## Use Cases
-
-- 🤖 AI assistants that need accurate time awareness
-- 📅 Scheduling and calendar applications
-- 📊 Time-series data analysis
-- 🔄 Multi-turn conversations requiring temporal consistency
-- 📝 Document generation with accurate dates
-- 🌐 Any LLM application where "now" matters
-
-## Technical Details
-
-Willow works by:
-1. Capturing the current timestamp when a request arrives
-2. Injecting temporal context into the system prompt
-3. Providing the LLM with explicit "now" information
-4. Maintaining temporal consistency across conversation turns
-
-This prevents models from:
-- Hallucinating incorrect dates
-- Claiming they don't know the current time
-- Drifting from reality in multi-turn exchanges
-- Failing at time-sensitive reasoning
-
-## License
-
-API Wrapper & Demo: MIT License  
-Willow Core Algorithm: Proprietary
-
----
-
-**Built with ❤️ by Haley Kurtz**
-
-*Reducing AI drift, one timestamp at a time.*
+Built with 💛 by Haley Kurtz
+Anchoring AI to reality, one turn at a time ⌛
