@@ -38,16 +38,17 @@ Use the `/ui` link above for interactive testing.
 
 ## Architecture:
 
+
 User
-│
-▼
-Willow Wrapper (API + UI) ← Public interface (FastAPI)
-│
-▼
-Willow Core Logic ← PROPRIETARY (willow.py) | Temporal Anchors + Scaffold
-│
-▼
+  ↓
+Willow Wrapper (API + UI)  ← Public interface (FastAPI)
+  ↓
+Willow Core Logic  ← PROPRIETARY (willow.py)
+  ↓
+Temporal Anchors + Scaffold
+  ↓
 LLM Provider (OpenAI / Anthropic)
+
 
 
 
