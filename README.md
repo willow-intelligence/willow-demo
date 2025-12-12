@@ -1,125 +1,72 @@
-# 🌿 Willow Intelligence
+<div align="center">
 
-### Cognitive Stability Infrastructure for LLMs
+## 🌿 Willow Intelligence
 
-Reducing drift and building continuity with temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinations, and reduces conversational drift.
+**Temporal anchoring that stabilizes LLM reasoning**
 
+Reduces conversational drift by 60–80% by grounding models in real-time context.
 
-**Live Demo - Interactive Web Beta UI**
+*Hallucinations are a symptom. Drift is a disease. Willow is the cure.*
 
-*Toggle Baseline vs Willow mode and view metrics (tokens, latency, model)*
+[Try the Live Demo](https://willow-drift-reduction-production.up.railway.app/ui) · [API Docs](https://willow-drift-reduction-production.up.railway.app/chat)
 
-👉 https://willow-drift-reduction-production.up.railway.app/ui
+</div>
 
+## Background
 
+LLMs hallucinate dates, lose track of conversation context, and get basic facts incorrect. Drift costs enterprises millions in oversight, correction, and failed deployments.
 
-**Public API Endpoint (for developers)**  
-*Note: /chat is a POST-only endpoint and will not load in a browser.*
+Willow injects temporal anchoring and proper context analyzation into any LLM request resulting in accurate timestamps, conversation continuity, and context stability. The model stays grounded instead of drifting.
 
-👉 https://willow-drift-reduction-production.up.railway.app/chat
+Hallucinations are a symptom. Drift is a disease. Willow is the cure. 
 
+## Quick Test
 
+Go to the [Live Demo](https://willow-drift-reduction-production.up.railway.app/ui) and try these:
 
-**What Willow Does**
+**Test 1: Time Awareness**
+"What time is it right now?"
 
-- Provides accurate real-time date & time
-- Prevents hallucinated system-time errors
-- Reduces conversational drift by 60–80%
-- Improves multi-turn consistency
-- Works with any provider (OpenAI, Anthropic, Google, etc.)
-- Logs tokens-in, tokens-out, and latency for every request
-- Enables continuity & stable reasoning over long conversations
+- Baseline: "I cannot access real-time information"
+- Willow: Returns correct date and time
 
+**Test 2: Temporal Reasoning**
+"What was the date one week ago?"
 
+- Baseline: Guesses or refuses
+- Willow: Calculates accurately
 
-**How to Test Willow (Quick Guide)**
+**Test 3: Continuity**
+"What were we just talking about?"
 
-1. Select a Mode
+- Baseline: Forgets or drifts
+- Willow: Maintains context
 
-Baseline → normal model behavior  
-Willow → temporal anchoring
-
-
-2. Test A: Time Awareness
-
-Ask: “What time is it right now?”
-
-Baseline mode:  
-❌ Model will say it cannot access real-time information.
-
-Willow mode:  
-✔ Returns the correct real-time date + time.
-
-
-3. Test B: Drift & Continuity
-
-Ask:  
-“What were we working on originally?”  
-“What was my previous task?”  
-“Summarize our conversation so far.”
-
-Willow maintains continuity.  
-Baseline forgets or drifts.
-
-
-4. Test C: Temporal Reasoning
-
-Try:  
-“What day is it one week from now?”  
-“How many days until Friday?”  
-“What day was it three months ago?”
-
-Willow returns accurate results across temporal shifts.
-
-
-
-**Developer API Example (Optional)**
-
-POST /chat
-
-```json
-{
-  "model": "openai:gpt-4o-mini",
-  "mode": "willow",
-  "messages": [
-    { "role": "user", "content": "What was the date one week ago?" }
-  ]
-}
-```
-
-
-
-Response Example:
-
-```json
-{
-  "mode": "willow",
-  "model": "openai:gpt-4o-mini",
-  "output": "...",
-  "metrics": {
-    "elapsed_sec": 1.051,
-    "tokens_in": 164,
-    "tokens_out": 24
-  }
-}
-```
-
-
-
-**Installation (Demo Version)**
+## For Developers
 
 ```bash
-git clone https://github.com/willow-intelligence/willow-demo
-cd willow-demo
-pip install -r requirements.txt
+curl -X POST "https://willow-drift-reduction-production.up.railway.app/chat" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai:gpt-4o-mini",
+    "mode": "willow",
+    "messages": [{ "role": "user", "content": "What day is it?" }]
+  }'
 ```
 
-Note: This repo contains a demo wrapper.  
-The Willow Core Algorithm (willow.py) is proprietary and not included.
+## Works With
 
-For licensing, partnerships, or research access:  
+ChatGPT · Claude · Gemini · Any LLM provider
+
+## Contact
+
 📧 haley.kurtz.ai@gmail.com
 
+<div align="center">
 
-Built with 💛 by Haley Kurtz  
+Built with 💛 by Haley Kurtz
+
+
 Anchoring AI to reality, one turn at a time ⌛
+
+</div>
