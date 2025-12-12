@@ -1,7 +1,9 @@
 # 🌿 Willow Intelligence
+
 ### Cognitive Stability Infrastructure for LLMs
 
 Reducing drift and building continuity with temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinations, and reduces conversational drift by 60–80% in early testing.
+
 
 **Live Demo - Interactive Web Beta UI**
 
@@ -11,12 +13,10 @@ Reducing drift and building continuity with temporal grounding infrastructure th
 
 
 
-
 **Public API Endpoint (for developers)**  
 *Note: /chat is a POST-only endpoint and will not load in a browser.*
 
 👉 https://willow-drift-reduction-production.up.railway.app/chat
-
 
 
 
@@ -29,7 +29,6 @@ Reducing drift and building continuity with temporal grounding infrastructure th
 - Works with any provider (OpenAI, Anthropic, Google, etc.)
 - Logs tokens-in, tokens-out, and latency for every request
 - Enables continuity & stable reasoning over long conversations
-
 
 
 
@@ -74,7 +73,6 @@ Willow returns accurate results across temporal shifts.
 
 
 
-
 **Developer API Example (Optional)**
 
 POST /chat
@@ -108,7 +106,6 @@ Response Example:
 
 
 
-
 **Installation (Demo Version)**
 
 ```bash
@@ -122,6 +119,7 @@ The Willow Core Algorithm (willow.py) is proprietary and not included.
 
 For licensing, partnerships, or research access:  
 📧 haley.kurtz.ai@gmail.com
+
 
 Built with 💛 by Haley Kurtz  
 Anchoring AI to reality, one turn at a time ⌛
