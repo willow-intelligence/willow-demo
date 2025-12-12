@@ -1,4 +1,4 @@
-**##🌿 Willow Intelligence:** Cognitive Stability Infrastructure for LLMs
+# **🌿 Willow Intelligence:** ### Cognitive Stability Infrastructure for LLMs
 
 Reducing drift and building continuity with temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinationss, and reduces conversational drift by 60–80% in early testing.
 
