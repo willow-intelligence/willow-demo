@@ -2,7 +2,7 @@
 
 ### Cognitive Stability Infrastructure for LLMs
 
-Reducing drift and building continuity with temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinations, and reduces conversational drift by 60–80% in early testing.
+Reducing drift and building continuity with temporal grounding infrastructure that stabilizes LLM reasoning, eliminates hallucinations, and reduces conversational drift.
 
 
 **Live Demo - Interactive Web Beta UI**
